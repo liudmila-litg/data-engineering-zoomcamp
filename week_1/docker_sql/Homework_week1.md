@@ -3,16 +3,6 @@
 In this homework we'll prepare the environment and practice
 Docker and SQL
 
-When submitting your homework, you will also need to include
-a link to your GitHub repository or other public code-hosting
-site.
-
-This repository should contain the code for solving the homework. 
-
-When your solution has SQL or shell commands and not code
-(e.g. python files) file formad, include them directly in
-the README file of your repository.
-
 
 ## Question 1. Understanding docker first run 
 
@@ -25,6 +15,15 @@ What's the version of `pip` in the image?
 - 23.3.1
 - 23.2.1
 
+>Docker Command:
+```
+docker run -it --entrypoint bash python:3.12.8
+pip --version
+```
+>Answer
+```
+24.3.1
+```
 
 ## Question 2. Understanding Docker networking and docker-compose
 
@@ -68,6 +67,12 @@ volumes:
 - postgres:5432
 - db:5432
 
+>Answer
+```
+db:5432
+  Hostname: db (the name of the Postgres service)
+  Port: 5432 (Postgres listens on this port inside the container)
+```
 
 ##  Prepare Postgres
 
