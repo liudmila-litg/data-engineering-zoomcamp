@@ -144,18 +144,23 @@ Tip: For every day, we only care about one single trip with the longest distance
 Code:
 ```sql
 SELECT 
-    DATE(tpep_pickup_datetime) AS pickup_date,
+    DATE(lpep_pickup_datetime) AS pickup_date,
     MAX(trip_distance) AS longest_trip_distance
 FROM 
-    public.yellow_taxi_data
+    public.green_taxi_data
 WHERE 
-    tpep_pickup_datetime >= '2019-10-01 00:00:00'
-    AND tpep_pickup_datetime < '2019-11-01 00:00:00'
+    lpep_pickup_datetime >= '2019-10-01 00:00:00'
+    AND lpep_pickup_datetime < '2019-11-01 00:00:00'
 GROUP BY 
-    DATE(tpep_pickup_datetime)
+    DATE(lpep_pickup_datetime)
 ORDER BY 
     longest_trip_distance DESC
 LIMIT 1;
+```
+
+>Answer
+```
+2019-10-31
 ```
 
 ## Question 5. Three biggest pickup zones
