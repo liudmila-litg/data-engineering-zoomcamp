@@ -175,6 +175,27 @@ Consider only `lpep_pickup_datetime` when filtering by date.
 - Morningside Heights, Astoria Park, East Harlem South
 - Bedford, East Harlem North, Astoria Park
 
+Code:
+```sql
+SELECT
+    CONCAT(zpu."Borough", '/', zpu."Zone") AS "pickup_loc",
+    SUM(CAST(total_amount AS DOUBLE PRECISION)) AS amount
+FROM
+    public.green_taxi_data t
+JOIN
+    zones zpu ON t."PULocationID" = zpu."LocationID"
+JOIN
+    zones zdo ON t."DOLocationID" = zdo."LocationID"
+WHERE 
+    DATE(lpep_pickup_datetime) = '2019-10-18' 
+GROUP BY 1
+ORDER BY amount DESC;
+```
+
+>Answer
+```
+East Harlem North, East Harlem South, Morningside Heights
+```
 
 ## Question 6. Largest tip
 
