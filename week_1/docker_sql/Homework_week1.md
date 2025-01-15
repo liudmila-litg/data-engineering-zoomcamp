@@ -101,7 +101,23 @@ During the period of October 1st 2019 (inclusive) and November 1st 2019 (exclusi
 2. In between 1 (exclusive) and 3 miles (inclusive),
 3. In between 3 (exclusive) and 7 miles (inclusive),
 4. In between 7 (exclusive) and 10 miles (inclusive),
-5. Over 10 miles 
+5. Over 10 miles
+
+Code:
+```sql
+SELECT 
+    COUNT(CASE WHEN trip_distance <= 1 THEN 1 END) AS "Up to 1 mile",
+    COUNT(CASE WHEN trip_distance > 1 AND trip_distance <= 3 THEN 1 END) AS "Between 1 and 3 miles",
+    COUNT(CASE WHEN trip_distance > 3 AND trip_distance <= 7 THEN 1 END) AS "Between 3 and 7 miles",
+    COUNT(CASE WHEN trip_distance > 7 AND trip_distance <= 10 THEN 1 END) AS "Between 7 and 10 miles",
+    COUNT(CASE WHEN trip_distance > 10 THEN 1 END) AS "Over 10 miles"
+FROM 
+    public.yellow_taxi_data
+WHERE 1=1
+    AND tpep_pickup_datetime >= '2019-10-01 00:00:00'
+    AND tpep_pickup_datetime < '2019-11-01 00:00:00';
+```
+
 
 Answers:
 
