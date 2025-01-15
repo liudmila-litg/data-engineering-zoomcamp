@@ -128,7 +128,7 @@ Answers:
 - 104,793;  202,661;  109,603;  27,678;  35,189
 - 104,838;  199,013;  109,645;  27,688;  35,202
 
-Answer
+>Answer
 ```
 104,793;  201,407;  110,612;  27,831;  35,281
 ```
@@ -197,7 +197,7 @@ GROUP BY 1
 ORDER BY amount DESC;
 ```
 
-Answer
+>Answer
 ```
 East Harlem North, East Harlem South, Morningside Heights
 ```
@@ -236,7 +236,7 @@ ORDER BY total_tip DESC
 LIMIT 1;
 ```
 
-Answer
+>Answer
 ```
 East Harlem South
 ```
@@ -267,7 +267,7 @@ Answers:
 - terraform import, terraform apply -y, terraform rm
 - 
 
-Answer
+>Answer
 ```
 terraform init, terraform apply -auto-approve, terraform destroy
 ```
