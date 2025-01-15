@@ -192,7 +192,7 @@ GROUP BY 1
 ORDER BY amount DESC;
 ```
 
->Answer
+Answer
 ```
 East Harlem North, East Harlem South, Morningside Heights
 ```
@@ -212,6 +212,29 @@ We need the name of the zone, not the ID.
 - East Harlem North
 - East Harlem South
 
+Code:
+```sql
+SELECT
+    zdo."Zone" AS "dropoff_loc",
+    COUNT(t."tip_amount") AS total_tip
+FROM
+    public.green_taxi_data t
+INNER JOIN
+    zones zpu ON t."PULocationID" = zpu."LocationID"
+INNER JOIN
+    zones zdo ON t."DOLocationID" = zdo."LocationID"
+WHERE 
+    CAST(t.lpep_pickup_datetime AS DATE) BETWEEN '2019-10-01' AND '2019-10-31'
+    AND zpu."Zone" = 'East Harlem North'
+GROUP BY zdo."Zone"
+ORDER BY total_tip DESC
+LIMIT 1;
+```
+
+Answer
+```
+East Harlem South
+```
 
 ## Terraform
 
