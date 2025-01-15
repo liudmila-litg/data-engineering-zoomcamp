@@ -128,6 +128,11 @@ Answers:
 - 104,793;  202,661;  109,603;  27,678;  35,189
 - 104,838;  199,013;  109,645;  27,688;  35,202
 
+Answer
+```
+104,793;  201,407;  110,612;  27,831;  35,281
+```
+
 
 ## Question 4. Longest trip for each day
 
@@ -260,3 +265,9 @@ Answers:
 - terraform init, terraform run -auto-aprove, terraform destroy
 - terraform init, terraform apply -auto-aprove, terraform destroy
 - terraform import, terraform apply -y, terraform rm
+- 
+
+Answer
+```
+terraform init, terraform apply -auto-approve, terraform destroy
+```
