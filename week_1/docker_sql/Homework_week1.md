@@ -112,10 +112,11 @@ SELECT
     COUNT(CASE WHEN trip_distance > 7 AND trip_distance <= 10 THEN 1 END) AS "Between 7 and 10 miles",
     COUNT(CASE WHEN trip_distance > 10 THEN 1 END) AS "Over 10 miles"
 FROM 
-    public.yellow_taxi_data
+    public.green_taxi_data
 WHERE 1=1
-    AND tpep_pickup_datetime >= '2019-10-01 00:00:00'
-    AND tpep_pickup_datetime < '2019-11-01 00:00:00';
+    AND lpep_pickup_datetime >= '2019-10-01 00:00:00'
+    AND lpep_pickup_datetime < '2019-11-01 00:00:00'
+
 ```
 
 
